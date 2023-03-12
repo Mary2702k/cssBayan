@@ -40,8 +40,8 @@
   }
 
   .accordion {
-    width: 700px;
-    margin: auto;
+    width: auto;
+    margin: 10rem;
   }
 
   .sections {
@@ -63,7 +63,16 @@
   .icon {
     color: rgb(97, 166, 97);
     font-size: 40px;
+  /*
+    max-height: 0;
+    overflow: hidden;
+    */
   }
+
+  .accordion:hover > .icon {
+    max-height: 100vh;
+  }
+
 
   .content {
     text-align: center;
@@ -74,11 +83,27 @@
    
 
  /* checked*/
+ 
 
   .accordion:hover input:checked + .content {
     max-height: 100vh;
     padding: 1rem;
   } 
+
+ 
+
+  .label:hover > .icon {
+    color: rgb(125, 35, 35);
+    rotate: 45deg;
+  }
+
+
+
+  input:checked + .label {
+    color: rgb(125, 35, 35);
+  }
+
+  
 
 
    @media screen and (max-width: 820px) {
