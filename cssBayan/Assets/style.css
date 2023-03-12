@@ -11,19 +11,21 @@
 
   body {
     font-family: 'Roboto', sans-serif;
-    font-size: 18px;
+    font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
   }
 
   h1 {
     color: rgb(97, 166, 97);;
-    font-weight: 900;
+    font-size: 1.5rem;
     text-align: center;
-    margin: 0 auto;
+    margin: 1rem;
   }
 
-  * {
+  *, 
+  *:before,
+  *:after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -33,10 +35,10 @@
     scroll-behavior: smooth; 
   }
 
-  input {
+  .ac-input {
+    -webkit-appearance: none;
+    appearance: none;
     position: absolute;
-    opacity: 0;
-    z-index: -1;
   }
 
   .accordion {
@@ -44,9 +46,69 @@
     margin: 10rem;
   }
 
-  .sections {
-    padding: 10px;
+  .ac-item {
+    margin: 1rem;
+    border: 0.1rem solid red;
   }
+
+   .ac-title {
+    display: block;
+    cursor: pointer;
+    color: rgb(97, 166, 97);
+    padding: 1rem;
+    font-size: 1.2rem;
+    font-weight: 800;
+    position: relative;
+   }
+
+   .ac-title:hover {
+    color: rgb(125, 35, 35);
+    transition: 0.2s ease-out;
+   }
+
+   .ac-title:after {
+    content:"";
+    display: block;
+
+    border-style: solid;
+    border-width: 10px 5px 0px 5px;
+    border-color: rgb(97, 166, 97); transparent transparent transparent;
+
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+   }
+   
+
+
+  .content {
+    text-align: center;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s;
+    cursor: pointer;
+  }
+
+
+  .ac-input:checked ~ .content {
+    max-height: 100vh;
+  }
+
+  .ac-input:checked ~ .ac-title {
+    color: rgb(125, 35, 35);
+  }
+
+  .ac-input:checked ~ .ac-title:after {
+    rotate: 45deg;
+    border-color: rgb(125, 35, 35);
+    transition: 0.2s ease-out;
+  }
+
+ 
+
+
+  /*
 
   .label {
     display: flex;
@@ -57,7 +119,6 @@
     cursor: pointer;
     color: rgb(97, 166, 97);
     padding: 10px;
-    cursor: pointer;
   }
 
   .icon {
@@ -67,7 +128,8 @@
     max-height: 0;
     overflow: hidden;
     */
-  }
+    /*
+  
 
   .accordion:hover > .icon {
     max-height: 100vh;
@@ -84,7 +146,7 @@
 
  /* checked*/
  
-
+/*
   .accordion:hover input:checked + .content {
     max-height: 100vh;
     padding: 1rem;
